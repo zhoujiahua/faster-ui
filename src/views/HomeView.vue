@@ -7,6 +7,7 @@
 <script>
 
 import { getUserInfo } from '@/api/users'
+import { saveUserInfo } from '@/dexie/db-store'
 
 export default {
   name: 'HomeView',
@@ -22,6 +23,7 @@ export default {
     async fetchData () {
       try {
         this.userInfo = await getUserInfo()
+        await saveUserInfo(this.userInfo)
         console.log(this.userInfo)
       } catch (e) {
         console.error(e.message)

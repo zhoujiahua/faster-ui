@@ -1,12 +1,20 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <ul>
+      <li>{{ userInfo.name }}</li>
+      <li>{{ userInfo.age }}</li>
+      <li>{{ userInfo.avatar }}</li>
+      <li>{{ userInfo.email }}</li>
+      <li>{{ userInfo.gender }}</li>
+      <li>{{ userInfo.id }}</li>
+      <li>{{ userInfo.phone }}</li>
+    </ul>
   </div>
 </template>
 
 <script>
 
-import { getUserInfo } from '@/api/users'
+import { getUserInfoById, getUserList } from '@/dexie/db-store'
 
 export default {
   name: 'AboutView',
@@ -21,8 +29,8 @@ export default {
   methods: {
     async fetchData () {
       try {
-        this.userInfo = await getUserInfo()
-        console.log(this.userInfo)
+        console.log(await getUserList())
+        this.userInfo = await getUserInfoById(1)
       } catch (e) {
         console.error(e.message)
         throw new Error(e.message)
