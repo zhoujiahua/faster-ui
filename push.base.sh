@@ -2,7 +2,7 @@
 
 # 版本号
 # shellcheck disable=SC2034
-nss_version="NSS-V1.2.0"
+nss_version="FTDI-V1.0.0"
 
 # 获取提交人信息
 commit_author=$(git config user.name)
