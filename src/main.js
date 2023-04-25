@@ -3,6 +3,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import TestDict from './components/TestDict'
+Vue.component('TestDict', TestDict)
+
 Vue.config.productionTip = false
 
 new Vue({
